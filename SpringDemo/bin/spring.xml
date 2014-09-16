@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean id="pointA" class="org.demian.java.Point">
+		<property name="x" value="0" />
+		<property name="y" value="0" />
+	</bean>
+	<bean id="pointB" class="org.demian.java.Point">
+		<property name="x" value="-20" />
+		<property name="y" value="0" />
+	</bean>
+	<bean id="pointC" class="org.demian.java.Point">
+		<property name="x" value="20" />
+		<property name="y" value="0" />
+	</bean>
+	<alias name="triangle1" alias="triangolo" />
+	<bean id="parentTriangle" class="org.demian.java.Triangle" abstract="true">
+		<property name="pointA" ref="pointC" />
+	</bean>
+	<bean id="triangle1" class="org.demian.java.Triangle" parent="parentTriangle">
+		<property name="pointB" ref="pointB" />
+		<property name="pointC" ref="pointC" />
+	</bean>
+</beans>
